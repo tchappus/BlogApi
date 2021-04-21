@@ -8,15 +8,15 @@ namespace BlogApi.Models
         {
             modelBuilder.Entity<Author>()
                 .Property(a => a.JoinTimestamp)
-                .HasDefaultValueSql("getdate()");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
             modelBuilder.Entity<Blog>()
                 .Property(b => b.CreatedTimestamp)
-                .HasDefaultValueSql("getdate()");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
             modelBuilder.Entity<Post>()
                 .Property(bi => bi.PostedTimestamp)
-                .HasDefaultValueSql("getdate()");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP");
         }
 
         public BlogContext(DbContextOptions<BlogContext> options) 
